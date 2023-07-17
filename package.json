@@ -1,6 +1,6 @@
 {
     "name": "chimera-api",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "An unoficial wrapper made for the Chimera API",
     "main": "dist/src/index.js",
     "scripts": {
