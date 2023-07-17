@@ -1,8 +1,12 @@
 {
     "name": "chimera-api",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "An unoficial wrapper made for the Chimera API",
     "main": "dist/src/index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/tockawaffle/Chimera-Node.git"
+    },
     "scripts": {
         "copy": "cpy types/index.d.ts dist/",
         "build": "tsc -p tsconfig.json && npm run copy",

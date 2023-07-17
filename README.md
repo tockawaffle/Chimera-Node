@@ -8,6 +8,9 @@ Why axios and not fetch?: Built-in fetch does not support proxies, which is a re
 
 Why would you use this?: Let's be honest, if you're here you're lazy to make your own wrapper. I get it. I am too. So I made this. You're welcome.
 
+[![npm version](https://badge.fury.io/js/chimera-api.svg)](https://badge.fury.io/js/chimera-api)
+[![wakatime](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716.svg)](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716)
+
 ## Requirements
 
 -   Node.js.
