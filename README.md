@@ -96,7 +96,7 @@ chimera
 
 ```javascript
 let imageRequest = {
-    prompt: "A sunset over a mountain range.",
+    prompt: "E G G.",
     // other properties...
 };
 chimera
