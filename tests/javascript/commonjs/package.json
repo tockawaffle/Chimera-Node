@@ -1,0 +1,11 @@
+{
+    "name": "commonjs",
+    "version": "1.0.0",
+    "description": "This is a test script for the Chimera API.",
+    "keywords": [],
+    "author": "Nixyi",
+    "type": "commonjs",
+    "dependencies": {
+        "chimera-api": "file:../../.."
+    }
+}
