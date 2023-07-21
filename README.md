@@ -1,15 +1,9 @@
+[![npm version](https://badge.fury.io/js/chimera-api.svg)](https://badge.fury.io/js/chimera-api)
+[![wakatime](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716.svg)](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716)
+
 # Introduction
 
 This project is a simple script for interacting with the Chimera API. The main class is `Chimera`, and it has methods for chat completion, image generation, text-to-speech generation, and content moderation.
-
-The Proxy handler is 100% not a thing to be used with a single API, but I am lazy and didn't want to rework the whole thing to accomodate for this single wrapper. So I just made it a thing. If you want to use it, you can. If you don't, you don't have to. This is an open-source project, so feel free to fork it and make your own changes.
-
-Why axios and not fetch?: Built-in fetch does not support proxies, which is a requirement for me, and since Axios is really easy to use, I just went with it.
-
-Why would you use this?: Let's be honest, if you're here you're lazy to make your own wrapper. I get it. I am too. So I made this. You're welcome.
-
-[![npm version](https://badge.fury.io/js/chimera-api.svg)](https://badge.fury.io/js/chimera-api)
-[![wakatime](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716.svg)](https://wakatime.com/badge/user/e0979afa-f854-452d-b8a8-56f9d69eaa3b/project/52a6f116-57ff-4560-a203-1bf98b42e716)
 
 ## Requirements
 
@@ -25,6 +19,9 @@ npm install chimera-api
 ```
 
 ## Usage
+
+<details>
+    <summary> CommonJS Compatibility </summary>
 
 This is an ESM module, you won't be able to use it with `require()`. You will need to use `import` instead:
 
@@ -52,6 +49,8 @@ This is an ESM module, you won't be able to use it with `require()`. You will ne
     process.exit(0);
 })();
 ```
+---
+</details>
 
 First, import the `Chimera` class:
 
@@ -95,6 +94,8 @@ chimera
     .catch((error) => console.error(error));
 ```
 
+Any other model that you want to use might follow this code aswell.
+
 ### Image Generation
 
 ```javascript
@@ -134,7 +135,7 @@ chimera
 <details>
 <summary> Translate </summary>
 
-`````javascript
+```javascript
 chimera
     .Whisper(
         {
@@ -151,7 +152,7 @@ chimera
 <details>
 <summary> Transcription </summary>
 
-````javascript
+```javascript
 chimera
     .Whisper(
         {
@@ -166,6 +167,32 @@ chimera
 
 There are also some examples on the `test` folder.
 
+### Support and Others
+
+<details>
+<summary> Performance Related Stuff </summary>
+<br>
+
+### Proxy Handler:
+
+The Proxy handler is 100% not a thing to be used with a single API: It provides advanced management of Axios instances, such as per-URL instance caching and optional proxy support. Originally, it was designed for managing multiple API endpoints, hence the proxy handler might seem over-engineered for a single API wrapper. It's optional and doesn't affect the main functionality if not utilized.
+
+TLDR: The Proxy Handler is way too overengineered for a single API wrapper, but it's optional and doesn't affect the main functionality if not utilized.
+
+---
+
+</details>
+
+<details>
+    <summary> Support </summary>
+
+### Where do I find support?
+
+Mainly on the [Discord Server](https://discord.gg/chimeragpt)
+You can also create an issue if what you're facing is an error from this package. (Please, do not ask for help on the discord if this is a package-related issue, this is not in any way attributed to the main devs on Chimera.)
+
+</details>
+
 ## Disclaimer
 
 This project is licensed under the GNU General Public License v3.0.
@@ -175,4 +202,3 @@ Please note that this is not an official project of the developers of Chimera. T
 Enjoy!
 
 me made dis :)
-`````
