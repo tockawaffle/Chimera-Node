@@ -1,3 +1,5 @@
+import { ReadStream } from "fs";
+
 export interface Auth {
     username: string;
     password: string;
@@ -79,7 +81,7 @@ export interface CreateChimeraTextToSpeechRequest {
 }
 
 export interface WhisperRequest {
-    file: Buffer;
+    file: ReadStream;
     fileName: string;
     language: string;
 }

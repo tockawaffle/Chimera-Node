@@ -129,6 +129,41 @@ chimera
     .catch((error) => console.error(error));
 ```
 
+### Whisper Interaction
+
+<details>
+<summary> Translate </summary>
+
+`````javascript
+chimera
+    .Whisper(
+        {
+            file: createReadStream("./path/to/file.mp3"),
+            fileName: "name.mp3",
+            language: "pt-BR",
+        },
+        "audio/translations"
+    )
+```
+
+</details>
+
+<details>
+<summary> Transcription </summary>
+
+````javascript
+chimera
+    .Whisper(
+        {
+            file: createReadStream("./path/to/file.mp3"),
+            fileName: "name.mp3",
+            language: "pt-BR",
+        },
+        "audio/transcriptions"
+    )
+```
+</details>
+
 There are also some examples on the `test` folder.
 
 ## Disclaimer
@@ -140,3 +175,4 @@ Please note that this is not an official project of the developers of Chimera. T
 Enjoy!
 
 me made dis :)
+`````

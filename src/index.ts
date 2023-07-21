@@ -8,7 +8,11 @@ import {
     CreateChimeraTextToSpeechRequest,
     TextToSpeechResponse,
     ModerationResponse,
+    WhisperRequest,
 } from "../types";
+
+import FormData from "form-data";
+import { readFileSync } from "fs";
 
 export default class Chimera {
     apiKey: string;
@@ -79,7 +83,7 @@ export default class Chimera {
 
     private handlerError(error: any): never {
         if (error.response) {
-            throw new Error(error.response.data);
+            throw new Error(JSON.stringify(error.response.data));
         } else {
             throw new Error(error.message);
         }
@@ -178,32 +182,30 @@ export default class Chimera {
         }
     }
 
-    // public async Whisper(
-    //     data: WhisperRequest,
-    //     endpoint?: "audio/transcriptions" | "audio/translations"
-    // ): Promise<any> {
-    //     const { file, fileName, language } = data;
-    //     const client = await this.getInstance();
-
-    //     try {
-    //         const formData = new FormData();
-    //         formData.append("file", file, {
-    //             filename: fileName,
-    //             contentType: "audio/aac",
-    //         });
-    //         formData.append("model", "whisper-1");
-    //         formData.append("response_format", "json");
-    //         formData.append("language", language);
-    //         // const readFile = readFileSync(filePath, { encoding: "base64" });
-    //         // const response = await client.post(
-    //         //     endpoint ?? "audio/translations",
-    //         //     readFile
-    //         // );
-    //         // return response.data;
-    //     } catch (error) {
-    //         return this.handlerError(error);
-    //     }
-    // }
+    public async Whisper(
+        data: WhisperRequest,
+        endpoint?: "audio/transcriptions" | "audio/translations"
+    ): Promise<any> {
+        try {
+            const { file, fileName, language } = data;
+            const client = await this.getInstance();
+            const formData = new FormData();
+            formData.append("file", file, {
+                filename: fileName,
+                contentType: "audio/aac",
+            });
+            formData.append("model", "whisper-1");
+            formData.append("response_format", "json");
+            formData.append("language", language);
+            const response = await client.post(
+                endpoint ?? "audio/translations",
+                formData
+            );
+            return response.data;
+        } catch (error) {
+            return this.handlerError(error);
+        }
+    }
 
     /**
      * Public method to moderate content
