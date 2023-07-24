@@ -52,7 +52,7 @@ export default class Chimera {
     private async getInstance(): Promise<AxiosInstance> {
         if (this.proxy) {
             return await new InstanceHandler(
-                "https://chimeragpt.adventblocks.cc/v1",
+                "https://chimeragpt.adventblocks.cc/api/v1",
                 {
                     Authorization: `Bearer ${this.apiKey}`,
                 },
@@ -182,6 +182,13 @@ export default class Chimera {
         }
     }
 
+    /**
+     * Public method to generate a translation or transcription with Whisper.
+     * @public
+     * @param {WhisperRequest} data - The whisper request object
+     * @param {String} endpoint - Select between audio/transcriptions or audio/translations
+     * @returns {Promise<any>} A promise that resolves to a WhisperResponse object
+     */
     public async Whisper(
         data: WhisperRequest,
         endpoint?: "audio/transcriptions" | "audio/translations"

@@ -19,7 +19,7 @@ export default class InstanceHandler {
 
     private readonly instanceTimeout = 4 * 60 * 60 * 1000; // 4 hours in milliseconds
     baseURL: string;
-    headers: any;
+    headers: RawAxiosRequestHeaders;
     proxyConfig: ProxyConfig | undefined;
     debugLogging: boolean;
 
@@ -57,7 +57,7 @@ export default class InstanceHandler {
      */
     async getInstance(): Promise<AxiosInstance> {
         let instanceInfo = InstanceHandler.instances.get(this.baseURL);
-        
+
         if (!instanceInfo || instanceInfo.instance === undefined) {
             const axiosInstance = await this.createProxy();
             instanceInfo = {
